@@ -1,0 +1,61 @@
+F W
+F R
+F L
+S W
+S V
+S R
+S L
+S N
+S M
+S F
+S P
+S T
+S K
+SH W
+SH R
+SH L
+SH N
+SH M
+TH W
+TH R
+V W
+V R
+V L
+Z W
+Z L
+B W
+B R
+B L
+D W
+D R
+G W
+G R
+G L
+P W
+P R
+P L
+T W
+T R
+K W
+K R
+K L
+L Y
+N Y
+M Y
+V Y
+H Y
+F Y
+S Y
+TH Y
+Z Y
+B Y
+D Y
+G Y
+P Y
+T Y
+K Y
+S P L
+S P R
+S T R
+S K R
+S K W
