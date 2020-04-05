@@ -1,6 +1,6 @@
 import random
 import string
-import verse
+import verse_mod as vm  
 import pronouncing
 
 def rand_rhyme_scheme():
@@ -69,65 +69,30 @@ def generate_line(syllable_number, rhyme_word, word_list):
         timeout_counter += 1
     return line
 
-def random_verse():
-    f = open("google-10000-english-usa.txt", "rt")
-    google_word_list = f.readlines()
-    google_word_list = [w.rstrip() for w in google_word_list]
-    cmu_word_list = pronouncing.search(".")
-    list_intersect = list(set(cmu_word_list).intersection(google_word_list))
-    verse_lines = []
-    subscheme_num = random.choice([1, 3])
-    for sn in range(0, subscheme_num):
-        scheme = rand_rhyme_scheme()
-        scheme_traits = define_scheme_traits(list_intersect)
-        line_num = len(scheme)
-        for ln in range(0, line_num):
-            line = scheme[ln]
-            sylb_num = scheme_traits[line]['syl']
-            rhyme_word = scheme_traits[line]['rhym']
-#            new_rw = verse.rhyme_type_random(rhyme_word)
-            new_rw_list = verse.perfect_rhyme(rhyme_word)
-            if len(new_rw_list) != 0:
-                new_rw = random.choice(new_rw_list)
-            else:
-                new_rw = rhyme_word
-            line = generate_line(sylb_num, new_rw, list_intersect)
-            verse_lines.append(line)
-    print("VERSE:")
-    for vl in verse_lines:
-        print(vl)
-    return
-
-phones = pronouncing.phones_for_word('science')[0]
-scnt = pronouncing.syllable_count(phones)
-test = verse.rhyme('science',phones=phones, syllable_num=scnt)
-print(phones)
-print(len(test))
-print(len(verse.unique(test)))
-# for r in test:
-#     print(r)
-#     print(pronouncing.phones_for_word(r)[0])
-
-
 #=====================================================
-print("\nGive me random verse!\n")
-print("COMPUTER: OKAY RANDOM VERSE COMING UP'\n\n")
+print("computer, give me some of your") 
+print("finest verse!\n")
+print("\n        OKAY VERSE COMING UP\n")
+
 verse = ""
 letters = string.ascii_lowercase
-structure_num = int(max(3, random.gauss(7, 3)))
-for s in range(0,structure_num):
-    verse_length = int(max(0, random.gauss(100, 2)))
-    for l in range(0, verse_length):
-        letter = random.choice(letters)
-        verse += letter
-print("VERSE:")
+line_length = int(max(0, random.gauss(500, 20)))
+for l in range(0, line_length):
+	verse += random.choice(letters)
+verse += '\n'
+verse = verse.rstrip()
+print("~*~ ~*~ ~*~ ｖｅｒｓｅ ~*~ ~*~ ~*~")
 print(verse)
+print("~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~")
 
 #=====================================================
-print("\nvery funny. I mean REAL random verse! \n")
+print("\nvery funny, how about something") 
+print("less random?\n")
+print("         LESS RANDOM COMING UP\n")
+
 verse = ""
 letters = string.ascii_lowercase
-structure_num = int(max(3, random.gauss(7, 3)))
+structure_num = int(max(3, random.gauss(3, 1)))
 for s in range(0,structure_num):
     struct_line_num = int(max(1, random.gauss(5, 2)))
     for l in range(0,struct_line_num):
@@ -142,63 +107,85 @@ for s in range(0,structure_num):
             verse += word + " "
         verse += "\n"
     verse += "\n"
-print("VERSE:")
+verse = verse.rstrip()
+print("~*~ ~*~ ~*~ ｖｅｒｓｅ ~*~ ~*~ ~*~")
 print(verse)
-
+print("~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~")
 #=====================================================
-print("no! actual words.\n\n")
-print("COMPUTER: OKAY USING WORD LIST FROM 'google-10000-english-usa-mod.txt'\n\n")
+print("\nno! actual words.\n")
+print("                         OKAY.\n")
 
+#note: google word list in order from most frequently used to least
 with open("google-10000-english-usa-mod.txt", "rt") as f:
-	google_word_list = [next(f) for x in range(9000)]
+	#the number of words take from list 
+	#smaller number, less obscure words will be
+	gwl_num = 1000 
+	google_word_list = [next(f) for x in range(gwl_num)]
 google_word_list = [w.rstrip() for w in google_word_list]
 verse = ""
 letters = string.ascii_lowercase
-structure_num = int(max(3, random.gauss(7, 2)))
+structure_num = int(max(3, random.gauss(4, 1)))
 for s in range(0, structure_num):
 	struct_line_num = int(max(1, random.gauss(5, 2)))
 	for l in range(0, struct_line_num):
 		word_count = int(max(0, random.gauss(5, 1)))
-	for w in range(0,word_count):
-		word = random.choice(google_word_list).rstrip()
-		verse += word + " "
+		for w in range(0,word_count):
+			word = random.choice(google_word_list).rstrip()
+			verse += word + " "
+		verse += "\n"
 	verse += "\n"
-print("VERSE:")
+verse = verse.rstrip()
+print("~*~ ~*~ ~*~ ｖｅｒｓｅ ~*~ ~*~ ~*~")
 print(verse)
-
+print("~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~")
 #=====================================================
-print("\nokay, now make it rhyme?")
+print("\nokay, now make it rhyme a bit?\n")
+print("                         SURE.\n")
 introduction = ""
 chorus = []
 bridge = ""
 end = ""
 # random_verse()
-
 cmu_word_list = pronouncing.search(".")
 list_intersect = list(set(cmu_word_list).intersection(google_word_list))
-verse_lines = []
-subscheme_num = random.choice([1, 3])
+verse_schemes = []
+subscheme_num = int(max(1, random.gauss(3, 1)))
 for sn in range(0, subscheme_num):
 	scheme = rand_rhyme_scheme()
 	scheme_traits = define_scheme_traits(list_intersect)
 	line_num = len(scheme)
 	repeat_num = random.choice([1, 3])
 	for rn in range(0, repeat_num):
+		scheme_lines = []
 		for ln in range(0, line_num):
 			letter = scheme[ln]
 			sylb_num = scheme_traits[letter]['syl']
 			rhyme_word = scheme_traits[letter]['rhym']
-			new_rw_list = verse.random_general_rhyme(rhyme_word)
-			new_rw_list = list(set(list_intersect).intersection(new_rw_list))
-			if len(new_rw_list) != 0:
-				new_rw = random.choice(new_rw_list)
-			else:
-				print(rhyme_word + ' is duplicate')
-				new_rw = rhyme_word
+			timeout_cnt = 0
+			new_rw_list = []
+			while len(new_rw_list) == 0:
+				new_rw_list = vm.random_general_rhyme(rhyme_word)
+				new_rw_list = list(set(list_intersect).intersection(new_rw_list))
+				timeout_cnt += 1
+				if timeout_cnt > 10:
+					new_rw_list.append(rhyme_word)
+			new_rw = random.choice(new_rw_list)
 			line = generate_line(sylb_num, new_rw, list_intersect)
-			verse_lines.append(line)
-print("VERSE:")
+			scheme_lines.append(line)
+		verse_schemes.append(scheme_lines)
+
 f.closed
-for vl in verse_lines:
-	print(vl)
+verse = ""
+for scheme_lines in verse_schemes:
+	for l in scheme_lines:
+		verse += l + '\n'
+	verse += '\n'
+verse = verse.rstrip()
+print("~*~ ~*~ ~*~ ｖｅｒｓｅ ~*~ ~*~ ~*~")
+print(verse)
+print("~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~")
+#=====================================================
+print("\ncool, still doesn't make any")
+print("sense but it's good enough now.")
+print("                          . . .\n")
 

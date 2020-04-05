@@ -576,7 +576,7 @@ def rhyme_type_random(word):
             rhymes = random_match_phones(word)
         elif rt == 'random_general':
             rhymes = random_general_rhyme(word)
-	elif rt == 'assonance':
+        elif rt == 'assonance':
             rhymes = assonance(word)
         elif rt == 'consonance':
             rhymes = consonance(word)
