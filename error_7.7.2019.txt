@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/austinpursley/Projects/current/random-lyrics/random-lyrics-letters.py", line 347, in <module>
-    random_verse()
-  File "/home/austinpursley/Projects/current/random-lyrics/random-lyrics-letters.py", line 251, in random_verse
-    new_rw = rhyme_type_random(rhyme_word)
-  File "/home/austinpursley/Projects/current/random-lyrics/random-lyrics-letters.py", line 175, in rhyme_type_random
-    if len(rhymes) != 0:
-TypeError: object of type 'NoneType' has no len()
