@@ -42,7 +42,7 @@ with open("lyrics_short.txt", "rt") as f:
 	lyrics = f.readlines()
 	
 	lyrics = list(((line.replace("-", " ")).rstrip()) for line in lyrics)
-	lyrics = list(re.sub("[^a-zA-Z ]","",line) for line in lyrics)
+	lyrics = list(re.sub("[^a-zA-Z ']","",line) for line in lyrics)
 	line_splits = list(line.split(" ") for line in lyrics)
 	new_lyrics = ""
 	print("LYRICS (unique lines only for efficiency):")
@@ -55,7 +55,6 @@ with open("lyrics_short.txt", "rt") as f:
 		new_lyrics += line +"\n"
 		for w in line_split:
 			if w not in words and w not in exceptions:
-				w = re.sub("[^a-zA-Z]","",w)
 				words.append(w)
 	print("\nFirst we can just try replacing each word with a rhyme\n")
 	new_words = []

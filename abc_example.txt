@@ -1,0 +1,69 @@
+LYRICS (unique lines only for efficiency):
+A B C
+Its easy as
+one two three
+do re mi
+baby you and me girl
+as simple as
+
+First we can just try replacing each word with a rhyme
+
+LYRICS, REPLACED WITH RHYMES:
+
+a fee b
+us army god
+front through we
+blue play see
+coffee through god key turn
+god garden god
+
+Now try something more interesting... (this will take awhile)
+
+************ COMPARE CONTRAST PHONES ************
+OLD:
+A B C
+['AH0', 'B IY1', 'S IY1']
+NEW:
+agree see
+['AH0 G R IY1', 'S IY1']
+OLD:
+Its easy as
+['IH1 T S', 'IY1 Z IY0', 'AE1 Z']
+NEW:
+it jersey an
+['IH1 T', 'JH ER1 Z IY0', 'AE1 N']
+OLD:
+one two three
+['W AH1 N', 'T UW1', 'TH R IY1']
+NEW:
+was tell re
+['W AA1 Z', 'T EH1 L', 'R EY1']
+OLD:
+do re mi
+['D UW1', 'R EY1', 'M IY1']
+NEW:
+uk lee
+['Y UW2 K EY1', 'L IY1']
+OLD:
+baby you and me girl
+['B EY1 B IY0', 'Y UW1', 'AH0 N D', 'M IY1', 'G ER1 L']
+NEW:
+job few a procedures
+['JH AA1 B', 'F Y UW1', 'AH0', 'P R AH0 S IY1 JH ER0 Z']
+OLD:
+as simple as
+['AE1 Z', 'S IH1 M P AH0 L', 'AE1 Z']
+NEW:
+as same players
+['AE1 Z', 'S EY1 M', 'P L EY1 ER0 Z']
+*************************************************
+
+LYRICS, PHONETIC MIX:
+
+agree see
+it jersey an
+was tell re
+uk lee
+job few a procedures
+as same players
+

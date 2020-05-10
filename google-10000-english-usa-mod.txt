@@ -3,6 +3,11 @@ of
 and
 to
 a
+b
+c
+do
+re
+mi
 in
 for
 is
