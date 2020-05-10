@@ -58,8 +58,6 @@ with open("lyrics_short.txt", "rt") as f:
 				w = re.sub("[^a-zA-Z]","",w)
 				words.append(w)
 	print("\nFirst we can just try replacing each word with a rhyme\n")
-#	print("WORDS:")	
-#	print(words)
 	new_words = []
 	for w in words:
 		phones = vm.first_phones_for_word(w)
@@ -92,11 +90,8 @@ with open("lyrics_short.txt", "rt") as f:
 		i += 1
 	print("LYRICS, REPLACED WITH RHYMES:\n")
 	print(new_lyrics)
-#	print(" NEW: " + new_w)
-#	print("OLD: " + str(syllable_num) + " NEW: " + str(syllable_num_sw))
-#	print("OLD: " + str(len(new_sim_words)) + " NEW: " + str(len(sim_words)) + '\n')
 
-	print("Now find words that fit within all the phonemes of a line merged together\n")
+	print("Now try something more interesting... (this will take awhile)\n")
 	#getting the phones for lyric lines
 	phones_for_lines_split = []
 	phones_for_lines = []
