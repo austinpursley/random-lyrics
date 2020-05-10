@@ -1,0 +1,44 @@
+OLD:
+Fly me to the moon
+['F L AY1', 'M IY1', 'T UW1', 'DH AH0', 'M UW1 N']
+NEW:
+oil idea into youth
+['OY1 L', 'AY0 D IY1 AH0', 'IH1 N T UW0', 'Y UW1 TH']
+OLD:
+Let me play among the stars
+['L EH1 T', 'M IY1', 'P L EY1', 'AH0 M AH1 NG', 'DH AH0', 'S T AA1 R Z']
+NEW:
+low am ebay a am up trust three
+['L OW1', 'AE1 M', 'IY1 B EY2', 'AH0', 'AE1 M', 'AH1 P', 'T R AH1 S T', 'TH R IY1']
+OLD:
+And let me see what spring is like
+['AH0 N D', 'L EH1 T', 'M IY1', 'S IY1', 'W AH1 T', 'S P R IH1 NG', 'IH1 Z', 'L AY1 K']
+NEW:
+a ads dvds un saw to to black
+['AH0', 'AE1 D Z', 'D IY2 V IY2 D IY1 Z', 'AH1 N', 'S AO1', 'T UW1', 'T UW1', 'B L AE1 K']
+OLD:
+On a Jupiter and Mars
+['AA1 N', 'AH0', 'JH UW1 P AH0 T ER0', 'AH0 N D', 'M AA1 R Z']
+NEW:
+project into now stores
+['P R AA1 JH EH0 K T', 'IH1 N T UW0', 'N AW1', 'S T AO1 R Z']
+OLD:
+In other words hold my hand
+['IH0 N', 'AH1 DH ER0', 'W ER1 D Z', 'HH OW1 L D', 'M AY1', 'HH AE1 N D']
+NEW:
+an others aid zone ads eyes end
+['AE1 N', 'AH1 DH ER0 Z', 'EY1 D', 'Z OW1 N', 'AE1 D Z', 'AY1 Z', 'EH1 N D']
+OLD:
+In other words baby kiss me
+['IH0 N', 'AH1 DH ER0', 'W ER1 D Z', 'B EY1 B IY0', 'K IH1 S', 'M IY1']
+NEW:
+enjoy earth are is by weeks sub
+['EH2 N JH OY1', 'ER1 TH', 'AA1 R', 'IH1 Z', 'B AY1', 'W IY1 K S', 'S AH1 B']
+
+oil idea into youth
+low am ebay a am up trust three
+a ads dvds un saw to to black
+project into now stores
+an others aid zone ads eyes end
+enjoy earth are is by weeks sub
+

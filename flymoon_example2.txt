@@ -1,0 +1,55 @@
+OLD:
+Fly me to the moon
+['F L AY1', 'M IY1', 'T UW1', 'DH AH0', 'M UW1 N']
+NEW:
+al i means women
+['AE1 L', 'AY1', 'M IY1 N Z', 'W IH1 M AH0 N']
+OLD:
+Let me play among the stars
+['L EH1 T', 'M IY1', 'P L EY1', 'AH0 M AH1 NG', 'DH AH0', 'S T AA1 R Z']
+NEW:
+little po coming poster eyes
+['L IH1 T AH0 L', 'P OW1', 'K AH1 M IH0 NG', 'P OW1 S T ER0', 'AY1 Z']
+OLD:
+And let me see
+['AH0 N D', 'L EH1 T', 'M IY1', 'S IY1']
+NEW:
+an flat least
+['AE1 N', 'F L AE1 T', 'L IY1 S T']
+OLD:
+what spring is like
+['W AH1 T', 'S P R IH1 NG', 'IH1 Z', 'L AY1 K']
+NEW:
+what spring file eyes
+['W AH1 T', 'S P R IH1 NG', 'F AY1 L', 'AY1 Z']
+OLD:
+On a Jupiter and Mars
+['AA1 N', 'AH0', 'JH UW1 P AH0 T ER0', 'AH0 N D', 'M AA1 R Z']
+NEW:
+any newsletter and march
+['EH1 N IY0', 'N UW1 Z L EH2 T ER0', 'AH0 N D', 'M AA1 R CH']
+OLD:
+In other words
+['IH0 N', 'AH1 DH ER0', 'W ER1 D Z']
+NEW:
+is enterprise
+['IH1 Z', 'EH1 N T ER0 P R AY2 Z']
+OLD:
+hold my hand
+['HH OW1 L D', 'M AY1', 'HH AE1 N D']
+NEW:
+highly match and
+['HH AY1 L IY0', 'M AE1 CH', 'AH0 N D']
+OLD:
+baby kiss me
+['B EY1 B IY0', 'K IH1 S', 'M IY1']
+NEW:
+phase usb
+['F EY1 Z', 'Y UW1 EH1 S B IY1']
+
+al i means women
+little po coming poster eyes
+an flat least what spring file eyes
+any newsletter and march
+is enterprise highly match and
+is enterprise phase usb

@@ -1,0 +1,84 @@
+
+original (unique) lyric lines:
+Fly me to the moon
+Let me play among the stars
+And let me see
+what spring is like
+On a-Jupiter and Mars
+In other words
+hold my hand
+baby, kiss me
+
+
+First we can just try replacing each word with a rhyme
+
+by sea true the van
+coast sea gay having the pre
+red suite sea lee
+scott switch give break
+stock a maintenance stand parts
+then future songs
+heard buy dance
+quickly, next sea
+
+Now we can try melting the phonetics of a single line and finding words to match within that
+
+PHONES FOR LINES
+OLD:
+Fly me to the moon
+['F L AY1', 'M IY1', 'T UW1', 'DH AH0', 'M UW1 N']
+NEW:
+all i mail album un
+['AO1 L', 'AY1', 'M EY1 L', 'AE1 L B AH0 M', 'AH1 N']
+OLD:
+Let me play among the stars
+['L EH1 T', 'M IY1', 'P L EY1', 'AH0 M AH1 NG', 'DH AH0', 'S T AA1 R Z']
+NEW:
+networks listings a stores
+['N EH1 T W ER2 K S', 'L IH1 S T IH0 NG Z', 'AH0', 'S T AO1 R Z']
+OLD:
+And let me see
+['AH0 N D', 'L EH1 T', 'M IY1', 'S IY1']
+NEW:
+a select tv
+['AH0', 'S AH0 L EH1 K T', 'T IY1 V IY1']
+OLD:
+what spring is like
+['W AH1 T', 'S P R IH1 NG', 'IH1 Z', 'L AY1 K']
+NEW:
+hit up republic
+['HH IH1 T', 'AH1 P', 'R IY0 P AH1 B L AH0 K']
+OLD:
+On a Jupiter and Mars
+['AA1 N', 'AH0', 'JH UW1 P AH0 T ER0', 'AH0 N D', 'M AA1 R Z']
+NEW:
+own a students a come hours
+['OW1 N', 'AH0', 'S T UW1 D AH0 N T S', 'AH0', 'K AH1 M', 'AW1 ER0 Z']
+OLD:
+In other words
+['IH0 N', 'AH1 DH ER0', 'W ER1 D Z']
+NEW:
+in up or were die
+['IH0 N', 'AH1 P', 'AO1 R', 'W ER1', 'D AY1']
+OLD:
+hold my hand
+['HH OW1 L D', 'M AY1', 'HH AE1 N D']
+NEW:
+fields ice and
+['F IY1 L D Z', 'AY1 S', 'AH0 N D']
+OLD:
+baby kiss me
+['B EY1 B IY0', 'K IH1 S', 'M IY1']
+NEW:
+safety kitchen
+['S EY1 F T IY0', 'K IH1 CH AH0 N']
+
+all i mail album un
+networks listings a stores
+a select tv
+hit up republic
+own a students a come hours
+in up or were die
+fields ice and
+safety kitchen
+

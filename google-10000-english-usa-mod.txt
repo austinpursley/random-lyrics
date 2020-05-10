@@ -112,7 +112,6 @@ email
 two
 health
 world
-re
 next
 used
 go
@@ -174,7 +173,6 @@ need
 many
 user
 said
-de
 does
 set
 under
@@ -468,7 +466,6 @@ cost
 movie
 forums
 march
-la
 september
 better
 say
@@ -568,7 +565,6 @@ gift
 question
 changes
 night
-ca
 hard
 texas
 oct
@@ -627,7 +623,6 @@ meeting
 rss
 become
 interest
-id
 child
 keep
 enter
@@ -656,7 +651,6 @@ put
 computers
 journal
 reports
-co
 try
 welcome
 central
@@ -735,7 +729,6 @@ past
 natural
 whether
 due
-et
 electronics
 five
 upon
@@ -761,7 +754,6 @@ microsoft
 conference
 environment
 records
-st
 district
 calendar
 costs
@@ -1238,7 +1230,6 @@ comes
 police
 everyone
 independent
-ip
 approach
 cameras
 brown
@@ -1314,7 +1305,6 @@ transfer
 introduction
 kitchen
 strong
-tel
 carolina
 wedding
 properties
@@ -1350,7 +1340,6 @@ thus
 wall
 ie
 involved
-el
 extra
 especially
 interface
@@ -1437,7 +1426,6 @@ enterprise
 ships
 entire
 educational
-md
 leading
 metal
 positive
@@ -1488,7 +1476,6 @@ indian
 prev
 ads
 mary
-il
 expected
 ring
 grade
@@ -1526,7 +1513,6 @@ plant
 reported
 hit
 transportation
-mm
 pool
 mini
 politics
@@ -1617,7 +1603,6 @@ dark
 programming
 external
 apple
-le
 regarding
 instructions
 min
@@ -1682,7 +1667,6 @@ mike
 trip
 pst
 worth
-mi
 procedures
 poor
 teacher
@@ -1806,7 +1790,6 @@ demand
 pp
 suite
 vegas
-na
 square
 chris
 attention
@@ -1929,8 +1912,6 @@ poster
 edge
 functional
 root
-au
-fi
 closed
 holidays
 ice
@@ -3611,7 +3592,6 @@ jose
 catch
 jane
 pakistan
-ps
 reliable
 consultation
 northwest
@@ -8779,8 +8759,6 @@ psi
 buses
 expedia
 geology
-pct
-wb
 creatures
 coating
 commented

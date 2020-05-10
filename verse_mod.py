@@ -96,6 +96,18 @@ def random_phones_for_word(word):
     phones = random.choice(all_phones)
     return phones
 
+def first_phones_for_word(word):
+    """Chooses first set of CMUdict phonemes for word
+
+    :param word: a word
+    :return: CMUdict phonemes string
+    """
+    all_phones = pronouncing.phones_for_word(word)
+    if not all_phones:
+        return ""
+    phones = all_phones[0]
+    return phones
+
 def rhyme(word, phones=None, syllable_num=0):
     """ Returns a list of rhymes for a word.
 
@@ -117,7 +129,9 @@ def rhyme(word, phones=None, syllable_num=0):
     """
     
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for " + word)
@@ -148,7 +162,9 @@ def perfect_rhyme(word, phones=None):
     :return: a list of perfect rhymes for word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -163,7 +179,7 @@ def perfect_rhyme(word, phones=None):
 
 
 def identical_rhyme(word, phones=None):
-    """ Returns an identical rhyme of word.
+    """ Returns identical rhymes of word.
 
     The conditions for an identical rhyme between words are:
     (1) last stressed vowel and subsequent phonemes match
@@ -183,7 +199,9 @@ def identical_rhyme(word, phones=None):
     :return: a list of identical rhymes for word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -239,7 +257,7 @@ def identical_rhyme(word, phones=None):
 
 
 def near_rhyme(word, phones=None, stress=True, consonant_tail=0):
-    """ Return a list of words that almost rhyme
+    """ Returns a list of words that almost rhyme
 
     The conditions for a near rhyme between words are:
     (1) At least one of the phonemes after and including the last stressed
@@ -256,10 +274,12 @@ def near_rhyme(word, phones=None, stress=True, consonant_tail=0):
     :return: a list of near rhymes for word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
-            raise ValueError(phones + " not phones for +" + word)
+            raise ValueError(phones + " not phones for" + word)
     if not phones:
         raise ValueError("phonemes string is empty")
 
@@ -278,7 +298,7 @@ def near_rhyme(word, phones=None, stress=True, consonant_tail=0):
     return []
 
 def assonance_slant_rhyme(word, phones=None):
-    """ Returns a slant rhyme defined by assonance i.e. matching vowels.
+    """ Returns slant rhymes defined by assonance i.e. matching vowels.
 
     The conditions for an assonance slant rhyme between words are:
     (1) The last stressed vowel and subsequent phonemes match all vowels.
@@ -296,7 +316,9 @@ def assonance_slant_rhyme(word, phones=None):
     """
 
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -323,7 +345,7 @@ def assonance_slant_rhyme(word, phones=None):
 
 
 def consonance_slant_rhyme(word, phones=None):
-    """ Returns a slant rhyme defined by consonance i.e. matching consonants.
+    """ Returns slant rhymes defined by consonance i.e. matching consonants.
 
     The conditions for a consonance slant rhyme between words are:
     (1) The last stressed vowel and subsequent phonemes match all consonants.
@@ -340,7 +362,9 @@ def consonance_slant_rhyme(word, phones=None):
     :return: a list consonance slant rhymes for word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -368,7 +392,7 @@ def consonance_slant_rhyme(word, phones=None):
     return []
 
 
-def random_general_rhyme(word, phones=None):
+def random_general_rhyme(word, phones=None, search_option="end"):
     """ Return a list of rhymes where a random combination of phonemes match
     
     The conditions for a general rhyme between words are:
@@ -381,10 +405,13 @@ def random_general_rhyme(word, phones=None):
 
     :param word: a word
     :param phones: specific CMUdict phonemes string for word (default None)
+    :param search_option option for regex search. (default "end")
     :return: a list of rhymes for word, where specific rhyme is random
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -394,7 +421,14 @@ def random_general_rhyme(word, phones=None):
     search_combos = wildcard_mix_phones_regex_searches(rp)
     while search_combos:
         search = random.choice(search_combos)
-        rhymes = pronouncing.search(search + "$")
+        if search_option == "end":
+            rhymes = pronouncing.search(search + "$")
+        elif search_option == "begin":
+            rhymes = pronouncing.search("^" + search)
+        elif search_option == "whole":
+            rhymes = pronouncing.search("^" + search + "$")
+        else:
+            raise ValueError("search_option should be 'end', 'begin', or 'whole'")
         if rhymes:
             rhymes = unique(rhymes)
             if word in rhymes:
@@ -407,7 +441,7 @@ def random_general_rhyme(word, phones=None):
 
 
 def random_match_phones(word, phones=None):
-    """Returns a word that matches random combination of phonemes
+    """Returns words that match a random combination of phonemes
 
     This is like a random general rhyme, however instead of just the
     last syllable portion, it's the entire word.
@@ -417,7 +451,9 @@ def random_match_phones(word, phones=None):
     :return: a word that shares a random combinations of phonemes
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError("phonemes and word don't match")
@@ -428,6 +464,9 @@ def random_match_phones(word, phones=None):
         search = random.choice(search_list)
         rhymes = pronouncing.search(search)
         if rhymes:
+            rhymes = unique(rhymes)
+            if word in rhymes:
+                rhymes.remove(word)
             return rhymes
         else:
             search_list.remove(search)
@@ -436,14 +475,16 @@ def random_match_phones(word, phones=None):
 
 
 def assonance(word, phones=None, search_direction=None, match_limit=None):
-    """Returns a word that has assonance
+    """Returns words that have assonance
 
     :param word: word that should be in the CMU Pronouncing Dictionary
     :param phones: specific phonemes to rhyme with (default None)
     :return: a word that has repition of vowel sounds to input word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError(phones + " not phones for +" + word)
@@ -477,14 +518,16 @@ def assonance(word, phones=None, search_direction=None, match_limit=None):
 
 
 def consonance(word, phones=None, search_direction=None, match_limit=None):
-    """Returns a word that has consonance
+    """Returns words that have consonance
 
     :param word: word that should be in the CMU Pronouncing Dictionary
     :param phones: specific phonemes to rhyme with (default None)
     :return: a word that has repition of consonance sounds to input word
     """
     if phones is None:
-        phones = pronouncing.phones_for_word(word)[0]
+        phones = first_phones_for_word(word)
+        if phones == "":
+            return []
     else:
         if phones not in pronouncing.phones_for_word(word):
             raise ValueError("phonemes and word don't match")
@@ -528,6 +571,7 @@ def wildcard_mix_phones_regex_searches(phones, stress=False):
 
 
     :param phones: CMU Pronouncing Dictionary phonemes string
+    :param stress: if stress portion of vowel is included or nont (a '.')
     :return: list of regex search strings where phonemes replaced with wildcard
     """
     phones_list = phones.split()
