@@ -15,6 +15,7 @@ with open("google-10000-english-usa-mod.txt", "rt") as f:
 	google_word_list = [w.rstrip() for w in google_word_list]
 
 def break_down_list(a_list):
+    # https://stackoverflow.com/questions/18406776/split-a-string-into-all-possible-ordered-phrases
     ns = range(1, len(a_list)) # n = 1..(n-1)
     for n in ns: # split into 2, 3, 4, ..., n parts.
         for idxs in itertools.combinations(ns, n):
@@ -45,6 +46,8 @@ with open("lyrics_short.txt", "rt") as f:
 	line_splits = list(line.split(" ") for line in lyrics)
 	new_lyrics = ""
 	print("LYRICS (unique lines only for efficiency):")
+	for l in lyrics:	
+		print(l)
 	#get unique words
 	for line in lyrics:
 		line = line.replace("-", " ")
@@ -54,7 +57,7 @@ with open("lyrics_short.txt", "rt") as f:
 			if w not in words and w not in exceptions:
 				w = re.sub("[^a-zA-Z]","",w)
 				words.append(w)
-	print("First we can just try replacing each word with a rhyme\n")
+	print("\nFirst we can just try replacing each word with a rhyme\n")
 #	print("WORDS:")	
 #	print(words)
 	new_words = []
@@ -93,7 +96,7 @@ with open("lyrics_short.txt", "rt") as f:
 #	print("OLD: " + str(syllable_num) + " NEW: " + str(syllable_num_sw))
 #	print("OLD: " + str(len(new_sim_words)) + " NEW: " + str(len(sim_words)) + '\n')
 
-	print("Now replace the lyrics with words that are phonetically related in a variety of ways\n")
+	print("Now find words that fit within all the phonemes of a line merged together\n")
 	#getting the phones for lyric lines
 	phones_for_lines_split = []
 	phones_for_lines = []
