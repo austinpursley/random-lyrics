@@ -606,6 +606,31 @@ def rhyme_same_stress(word):
             return rhyme
         timeout_timer += 1
 
+def sim_word_for_phones(phones, word_list=[], sim_perc = 0.25):
+	"""Finds a word that has shared phonemes to input phonemes
+
+	:param phones: CMU Pronouncing Dictionary phonemes string
+	:param word_list: list of words to limit search to
+	:sim_perc: threshold for similarity between phones and words in words_list
+	:return: word that has number of phonemes the same as phones
+	"""
+	search_combos = wildcard_mix_phones_regex_searches(phones)
+	random.shuffle(search_combos)
+	for sch in search_combos:
+		sch_list = sch.split(" ")
+		if sch_list.count(".{1,3}") < (1-sim_perc)*len(sch_list):
+			matches = pronouncing.search("^" + sch + "$")
+			if matches:
+				matches = unique(matches)
+				random.shuffle(matches)
+				for m in matches:
+						if word_list:
+							if m in word_list:
+								return(m)
+						else:
+							return(m)
+	return None
+
 def rhyme_type_random(word):
     rhyme_types = ['perfect', 'identical', 'random_match_phones', 'random_general',
                    'assonance', 'consonance', 'slant_assonance', 'slant_consonance']

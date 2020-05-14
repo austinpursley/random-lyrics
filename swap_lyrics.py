@@ -1,18 +1,11 @@
 import random
 import itertools
 import string
-import verse_mod as vm  
+import rhymes_and_more as vm  
 import pronouncing
 import re
 import copy
 lyrics = ""
-
-with open("google-10000-english-usa-mod.txt", "rt") as f:
-	#gwl_num is the number of words to take from list 
-	#smaller number, less obscure words will be
-	gwl_num = 2000 
-	google_word_list = [next(f) for x in range(gwl_num)]
-	google_word_list = [w.rstrip() for w in google_word_list]
 
 def break_down_list(a_list):
     # https://stackoverflow.com/questions/18406776/split-a-string-into-all-possible-ordered-phrases
@@ -21,20 +14,13 @@ def break_down_list(a_list):
         for idxs in itertools.combinations(ns, n):
             yield [' '.join(a_list[i:j]) for i, j in zip((0,) + idxs, idxs + (None,))]
 
-def sim_words_for_phones(phones, word_list, sim_perc = 0.25):
-	search_combos = vm.wildcard_mix_phones_regex_searches(phones)
-	random.shuffle(search_combos)
-	for sch in search_combos:
-		sch_list = sch.split(" ")
-		if sch_list.count(".{1,3}") < (1-sim_perc)*len(sch_list):
-			matches = pronouncing.search("^" + sch + "$")
-			if matches:
-				matches = vm.unique(matches)
-				random.shuffle(matches)
-				for m in matches:
-					if m in word_list:
-						return(m)
-	return None
+with open("google-10000-english-usa-mod.txt", "rt") as f:
+	#gwl_num is the number of words to take from list 
+	#smaller number, less obscure words will be
+	#Also, removed some words
+	gwl_num = 2000 
+	google_word_list = [next(f) for x in range(gwl_num)]
+	google_word_list = [w.rstrip() for w in google_word_list]
 
 with open("lyrics_short.txt", "rt") as f:
 	words = []
@@ -45,7 +31,7 @@ with open("lyrics_short.txt", "rt") as f:
 	lyrics = list(re.sub("[^a-zA-Z ']","",line) for line in lyrics)
 	line_splits = list(line.split(" ") for line in lyrics)
 	new_lyrics = ""
-	print("LYRICS (unique lines only for efficiency):")
+	print("LYRICS (try unique lines only for efficiency):")
 	for l in lyrics:	
 		print(l)
 	#get unique words
@@ -65,7 +51,8 @@ with open("lyrics_short.txt", "rt") as f:
 		sim_words = []		
 		step_out_timer = 0
 		while len(sim_words) == 0:
-			sim_words_unfilt = vm. near_rhyme(w, phones=phones, stress=True)
+			#note: multiple functions you could replace "near_rhyme" with
+			sim_words_unfilt = vm.near_rhyme(w, phones=phones, stress=True)
 			sim_words_unfilt = list(set(sim_words_unfilt).intersection(google_word_list))
 			for sw in sim_words_unfilt:
 				phones_sw = vm.first_phones_for_word(sw)
@@ -104,29 +91,34 @@ with open("lyrics_short.txt", "rt") as f:
 		phones_for_lines_split.append(phones_split)	
 	new_phones_for_lyrics = []
 	new_lyrics = []
+	# line by line
 	for p4l_split in phones_for_lines_split:
 		line_syl_cnt = pronouncing.syllable_count(" ".join(p4l_split))
+		#combinations of ways to group phonemes into words
 		p4l_combos = list(break_down_list(p4l_split))		
 		random.shuffle(p4l_combos)
 		new_words_for_line = []
 #		print("combo count: ", len(p4l_combos))
 #		combo_count = 0
+		#p4l is list of phones string for
 		for p4l in p4l_combos:
+			#word/phones by word/phones
 			for phones in p4l:
-				new_word = sim_words_for_phones(phones, google_word_list)
+				#see if we can find new similar word for phones
+				new_word = vm.sim_word_for_phones(phones, google_word_list)
 				if new_word:
 					new_words_for_line.append(new_word)
 				else:
 					new_words_for_line = []
 					break
-
 			if new_words_for_line:
+				#want new line to have the same syllables as the old line
 				new_line_syl_cnt = 0
 				for word in new_words_for_line:
 					phones = pronouncing.phones_for_word(word)[0]
 					new_line_syl_cnt += pronouncing.syllable_count(phones)
 				if new_line_syl_cnt == line_syl_cnt:
-	#				print("found words for line")
+#					print("found words for line")
 					new_lyrics.append(" ".join(new_words_for_line))
 					new_phones_for_line = []
 					for w in new_words_for_line:
